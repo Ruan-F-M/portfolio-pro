@@ -1,7 +1,9 @@
 import { Button } from "@/components/button"
+import { Link } from "@/components/link"
 import { SectionTitle } from "@/components/section-title"
 import { TechBadge } from "@/components/tech-badge"
 import { FiGlobe } from "react-icons/fi"
+import { HiArrowLeft } from "react-icons/hi"
 import { TbBrandGithub } from "react-icons/tb"
 
 export const ProjectDetails = () => {
@@ -10,7 +12,7 @@ export const ProjectDetails = () => {
             <div
                 className="absolute inset-0 z-[-1]"
                 style={{
-                    background: 'url("/images/hero-bg.png") no-repeat center center/cover'
+                    background: 'url(/images/hero-bg.png) no-repeat center/cover, url(/images/inteligencia-artificial.png) no-repeat center/cover'
                 }}
             />
 
@@ -27,18 +29,22 @@ export const ProjectDetails = () => {
             </div>
             <div className="my-6 sm:my-12 flex items-center gap-2 sm:gap-4 flex-col sm:flex-row">
                 <a href="https://github.com/Ruan-F-M/Alexa-IoT" target="_blank">
-                <Button className="max-w-[180px]">
-                    <TbBrandGithub size={20} />
-                    Repositório
-                </Button>
-            </a>
-            <a href="https://github.com/Ruan-F-M/Alexa-IoT" target="_blank">
-                <Button className="max-w-[180px]" disabled>
-                    <FiGlobe size={20} />
-                    Projeto Online
-                </Button>
-            </a>
-        </div>
+                    <Button className="max-w-[180px]">
+                        <TbBrandGithub size={20} />
+                        Repositório
+                    </Button>
+                </a>
+                <a href="https://github.com/Ruan-F-M/Alexa-IoT" target="_blank">
+                    <Button className="max-w-[180px]" disabled>
+                        <FiGlobe size={20} />
+                        Projeto Online
+                    </Button>
+                </a>
+            </div>
+            <Link href="/projects">
+                <HiArrowLeft size={20} />
+                Voltar para projetos
+            </Link>
         </section >
     )
 }

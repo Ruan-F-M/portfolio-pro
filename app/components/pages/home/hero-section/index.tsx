@@ -1,8 +1,10 @@
+'use client'
+
 import { Button } from '@/components/button'
 import { TechBadge } from '@/components/tech-badge'
 import Image from 'next/image'
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import { TbBrandGithub, TbBrandLinkedin } from 'react-icons/tb'
+import { TbBrandGithub, TbBrandLinkedin, TbBrandWhatsapp, TbBrandYoutube } from 'react-icons/tb'
 import { technologies } from '@/components/pages/home/known-techs/index'
 
 const MOCK_CONTACTS = [
@@ -14,9 +16,23 @@ const MOCK_CONTACTS = [
     url: 'https://www.linkedin.com/in/ruan-f-m/',
     icon: <TbBrandLinkedin />,
   },
+  {
+    url: 'https://github.com/Ruan-F-M',
+    icon: <TbBrandYoutube />,
+  },
+  {
+    url: 'https://www.linkedin.com/in/ruan-f-m/',
+    icon: <TbBrandWhatsapp />,
+  },
 ]
 
 export const HeroSection = () => {
+  const handleContact = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
   return (
     <section className="w-full lg:h-[755px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col justify-end pb-10 sm:pb-32 py-32 lg:pb-[110px]">
       <div className="container flex items-start justify-between flex-col-reverse lg:flex-row">
@@ -36,7 +52,7 @@ export const HeroSection = () => {
           </div>
 
           <div className="mt-6 lg:mt-10 flex sm:items-center sm:gap-5 flex-col sm:flex-row">
-            <Button className="w-max shadow-button">
+            <Button className="w-max shadow-button" onClick={handleContact}>
               Entre em contato
               <HiArrowNarrowRight size={18} />
             </Button>
