@@ -38,11 +38,13 @@ export const HeroSection = () => {
       <div className="container flex items-start justify-between flex-col-reverse lg:flex-row">
         <div className="w-full lg:max-w-[530px]">
           <p className="font-mono text-emerald-400"> Olá meu nome é </p>
-          <h2 className="text-4xl font-medium mt-2"> Ruan França Mendonça</h2>
+          <h2 className="text-4xl font-medium mt-2"> Ruan França</h2>
 
           <p className="text-gray-400 my-6 text-sm sm:text-base">
             {' '}
-            Sou desenvolvedor Full-Stack
+            Olá, meu nome é Ruan França Mendonça e sou um desenvolvedor Full-Stack apaixonado por conhecimento em tecnologias e transformar ideias em realidade digital.
+            Com sólida experiência em React e Java, minha especialização é construir aplicativos web robustos e eficientes.
+            Minha abordagem é impulsionada por metodologias ágeis, atualmente utilizando DevOps para acelerar o ciclo de desenvolvimento e garantir entregas pontuais.
           </p>
 
           <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340]">
