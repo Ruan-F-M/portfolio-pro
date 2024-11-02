@@ -16,13 +16,12 @@ export const HighlightedProjects = ({ projects }: HighlightedProjectsProps) => {
       <HorizontalDivider className="mb-16" />
 
       <div>
-        {projects?.map(project => (
+        {projects?.map((project) => (
           <div key={project.slug}>
             <ProjectCard project={project} />
             <HorizontalDivider className="my-16" />
           </div>
         ))}
-
         <p className="flex items-center gap-1.5">
           <span className="text-gray-400"> Se interessou?</span>
           <Link href="/projects" className="inline-flex">
