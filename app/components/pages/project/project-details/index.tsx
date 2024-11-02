@@ -35,7 +35,7 @@ export const ProjectDetails = () => {
                     </Button>
                 </a>
                 <a href="https://github.com/Ruan-F-M/Alexa-IoT" target="_blank">
-                    <Button className="max-w-[180px]" disabled>
+                    <Button className="max-w-[180px]" >
                         <FiGlobe size={20} />
                         Projeto Online
                     </Button>

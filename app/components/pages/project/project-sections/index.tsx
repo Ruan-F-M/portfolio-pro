@@ -4,10 +4,6 @@ const sections = [
     {
         title: 'Options',
         image: '/images/IoT-option.png',
-    },
-    {
-        title: 'Options',
-        image: '/images/IoT-option.png',
     }
 ]
 
