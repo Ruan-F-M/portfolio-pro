@@ -6,6 +6,10 @@ export type KnownTech = {
     startDate: string
 }
 
+export type Technology = {
+    name: string
+}
+
 export type ProjectSection = {
     title: string
     image: {
@@ -20,13 +24,14 @@ export type Project = {
     }
     title: string
     shortDescription: string
-    technologies: KnownTech []
+    technologies: Technology[]
     pageThumbnail: {
         url: string
     }
-    sections: ProjectSection []
+    sections: ProjectSection[]
     description: {
         raw: RichTextContent
+        text: string
     }
     liveProjectUrl?: string
     githubUrl?: string

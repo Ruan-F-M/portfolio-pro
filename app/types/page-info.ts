@@ -11,17 +11,31 @@ export type HomePageInfo = {
     introduction: {
         raw: RichTextContent;
     }
-    technologies: KnownTech []
+    technologies: KnownTech[]
     profilePicture: {
         url: string
     }
-    socials: Social []
-    knownTechs: KnownTech []
-    highlightProjects: Project []
+    socials: Social[]
+    knownTechs: KnownTech[]
+    highlightProjects: Project[]
 }
 
-export type HomePageData  = {
+export type ProjectPageData = {
+    project: Project
+}
+
+export type ProjectsPageData = {
+    projects: Project[]
+}
+
+export type ProjectsPageStaticData = {
+    projects: {
+        slug: string
+    }[]
+}
+
+export type HomePageData = {
     page: HomePageInfo
-    workExperiences: WorkExperience []
+    workExperiences: WorkExperience[]
 }
 
