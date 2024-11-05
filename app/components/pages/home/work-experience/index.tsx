@@ -2,11 +2,34 @@ import { SectionTitle } from '@/components/section-title'
 import { ExperienceItem } from './experience-item'
 import { WorkExperience as IWorkExperience } from '@/types/work-experience'
 
+// Função para ordenar as experiências
+const sortExperiences = (experiences: IWorkExperience[]) => {
+  return experiences.sort((a, b) => {
+    const endDateA = a.endDate ? new Date(a.endDate) : new Date();
+    const endDateB = b.endDate ? new Date(b.endDate) : new Date();
+
+    // Coloca experiências em andamento (sem endDate) no topo
+    if (!a.endDate && b.endDate) return -1;
+    if (a.endDate && !b.endDate) return 1;
+
+    // Ordena pela endDate em ordem decrescente
+    if (endDateA.getTime() !== endDateB.getTime()) {
+      return endDateB.getTime() - endDateA.getTime();
+    }
+
+    // Se as endDates forem iguais, ordena pela startDate em ordem decrescente
+    const startDateA = new Date(a.startDate);
+    const startDateB = new Date(b.startDate);
+    return startDateB.getTime() - startDateA.getTime();
+  });
+};
+
 type WorkExperienceProps = {
   experiences: IWorkExperience[]
 }
 
 export const WorkExperience = ({ experiences }: WorkExperienceProps) => {
+  const orderedExperiences = sortExperiences(experiences);
   return (
     <section className="container py-16 flex gap-10 md:gap-4 lg:gap-16 flex-col md:flex-row">
       <div className="max-w-[420px]">
@@ -29,7 +52,7 @@ export const WorkExperience = ({ experiences }: WorkExperienceProps) => {
       </div>
 
       <div className="flex flex-col gap-4">
-        {experiences?.map(experience => (
+        {orderedExperiences.map(experience => (
           <ExperienceItem
             key={experience.companyName}
             experience={experience}
