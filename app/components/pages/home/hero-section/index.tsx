@@ -10,7 +10,6 @@ import { CMSIcon } from '@/components/cms-icon'
 import { RichText } from '@/components/rich-text'
 import { techBadgeAnimation, heroSectionAnimation, profilePictureAnimation } from '@/lib/animations'
 
-
 type HeroSectionProps = {
   homeInfo: HomePageInfo
 }
@@ -22,6 +21,7 @@ export const HeroSection = ({ homeInfo }: HeroSectionProps) => {
       contactSection.scrollIntoView({ behavior: 'smooth' })
     }
   }
+  
   return (
     <section className="w-full lg:h-[755px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col justify-end pb-10 sm:pb-32 py-32 lg:pb-[110px]">
       <div className="container flex items-start justify-between flex-col-reverse lg:flex-row">
