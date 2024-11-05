@@ -1,3 +1,5 @@
+'use client'
+
 import { getRelativeTimeString } from '@/utils/get-relative-time'
 import { KnownTech as IKnownTech } from '@/types/projects'
 import { CMSIcon } from '@/components/cms-icon'

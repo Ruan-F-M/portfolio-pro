@@ -10,7 +10,7 @@ import { BackToTop } from './components/back-to-top'
 export const metadata = {
   title: {
     default: 'Home',
-    template: '%s | RFM Dev',
+    template: '%s | RF Dev',
   },
   icons: [
     {

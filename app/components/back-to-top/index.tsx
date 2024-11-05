@@ -4,6 +4,7 @@ import { TbArrowNarrowUp } from 'react-icons/tb'
 import { Button } from '../button'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useState } from 'react'
+import { backToTopAnimation } from '@/lib/animations'
 
 export const BackToTop = () => {
   const [show, setShow] = useState(false)
@@ -26,9 +27,7 @@ export const BackToTop = () => {
       {show && (
         <motion.div
           className="fixed right-4 bottom-4 z-20"
-          initial={{ opacity: 0, right: -10 }}
-          animate={{ opacity: 1, right: 16 }}
-          exit={{ opacity: 0, right: -10 }}
+          {...backToTopAnimation}
         >
           <Button
             onClick={scrollToTop}

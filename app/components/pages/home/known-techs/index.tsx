@@ -4,6 +4,7 @@ import { SectionTitle } from '@/components/section-title'
 import { KnownTech } from './known-tech'
 import { motion } from 'framer-motion'
 import { KnownTech as IKnownTech } from '@/types/projects'
+import { knownTechsAnimation } from '@/lib/animations'
 
 
 type KnownTechsProps = {
@@ -18,9 +19,7 @@ export const KnownTechs = ({ techs }: KnownTechsProps) => {
         {techs?.map((tech, i) => (
           <motion.div
             key={tech.name}
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
+            {...knownTechsAnimation}
             transition={{ duration: 0.15, delay: i * 0.1 }}
           >
             <KnownTech tech={tech} />
