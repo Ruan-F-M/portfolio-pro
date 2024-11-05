@@ -7,52 +7,53 @@ import { notFound } from 'next/navigation'
 
 type ProjectProps = {
   params: {
-    slug: string;
+    slug: string
   }
 }
 
 const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
   const query = `
-    query ProjectQuery() {
-      project(where: {slug: "${slug}"}) {
-        pageThumbnail {
-          url
-        }
-        thumbnail {
-          url
-        }
-        sections {
-          title
-          image {
-            url
-          }
-        }
-        title
-        shortDescription
-        description {
-          raw
-          text
-        }
-        technologies {
-          name
-        }
-        liveProjectUrl
-        githubUrl
+  query ProjectQuery() {
+    project(where: {slug: "${slug}"}) {
+      pageThumbnail {
+        url
       }
+      thumbnail {
+        url
+      }
+      sections {
+        title
+        image {
+          url
+        }
+      }
+      title
+      shortDescription
+      description {
+        raw
+        text
+      }
+      technologies {
+        name
+      }
+      liveProjectUrl
+      githubUrl
     }
-    `
-
-  return fetchHygraphQuery(
+  }
+  `
+  const data = fetchHygraphQuery<ProjectPageData>(
     query,
     1
-    //   1000 * 60 * 60 * 24, // 1 day
+    // 1000 * 60 * 60 * 24, // 1 day
   )
+
+  return data
 }
 
 export default async function Project({ params: { slug } }: ProjectProps) {
   const { project } = await getProjectDetails(slug)
 
-  console.log(project)
+  if (!project?.title) return notFound()
 
   return (
     <>
@@ -64,8 +65,8 @@ export default async function Project({ params: { slug } }: ProjectProps) {
 
 export async function generateStaticParams() {
   const query = `
-    query ProjectSlugsQuery {
-      projects(first:100) {
+    query ProjectsSlugsQuery() {
+      projects(first: 100) {
         slug
       }
     }
@@ -76,10 +77,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params: { slug }
+  params: { slug },
 }: ProjectProps): Promise<Metadata> {
   const data = await getProjectDetails(slug)
-  const project = data.project;
+  const project = data.project
 
   return {
     title: project.title,
@@ -87,11 +88,11 @@ export async function generateMetadata({
     openGraph: {
       images: [
         {
-          url: project.pageThumbnail.url,
+          url: project.thumbnail.url,
           width: 1200,
           height: 630,
-        }
-      ]
-    }
+        },
+      ],
+    },
   }
 }
